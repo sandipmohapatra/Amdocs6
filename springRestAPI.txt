@@ -202,3 +202,45 @@ public int square(int i)
 }
 }
 ------------------------------------------------------------------------------------------------
+Example of JPA
+--------------------------
+src/main/java :- we write the java class files.
+src/main/resources :- requirements for running the java programs
+-------------------------------------------------------------------------------------------------------
+application.proporties
+--------------------------------
+server.port=8090
+
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=system
+spring.datasource.password=1234
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10Dialect
+---------------------------------------------------------------------------------------------------------------
+In spring boot the tomcate server is embeded
+server.port=8090
+------------------------------------
+load the driver
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+--------------------------------------------------------------------------------------------
+url 
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+xe is the database name
+1521 is the default port no of oracle
+localhost means both client and database server reside in the same system.
+in place of localhost in real time it will be the database server port no :- 172.123.21.43
+thin is the driver type
+oracle is the software.
+------------------------------------------------------------------------------------------------
+spring.jpa.show-sql=true 
+this will display the automatic querry generated
+-------------------------------------------------------------------------
+spring.jpa.hibernate.ddl-auto=create/insert/update/delete
+this will create the querry.
+----------------------------------------------------------------------------- 
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10Dialect
+it is a library 
+----------------------------------------------------------------------------------------
