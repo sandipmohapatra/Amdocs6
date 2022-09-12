@@ -1,0 +1,20 @@
+Topics
+-------------------------------------
+Spring
+Spring Boot
+Rest webservices
+couchdb
+CI/CD
+Maven
+-------------------------------
+JDK17---Java development Kit
+JRE ---Java Runtime Environment
+------------------------------------------------
+core java we can use jdk all the lib files are present in it.
+JDBC(1 jar),Servlet(1 jar),JSP(1 jar),spring(20 jars),spring MVC(25 jars),Hibernate(15)-----these libs are not present in JDK so we need to add the external jar files.
+when the version change we have to upgrade the jar files also.
+Maven :- In maven there will be automatic download to jar files.we have to mention the jar file version.
+We have maven repository .where the different versions of jar files available.
+
+we create a POM.xml file to mention the jar files required for the program.
+----------------------------------------------------------------------------------------------------------------------
