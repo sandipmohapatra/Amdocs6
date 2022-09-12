@@ -70,3 +70,60 @@ public class SpringBootPoject1Application {
 
 }
 --------------------------------------------------------------------------------------------------------------------
+example-2
+-------------------
+package com.example.demo;
+
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class SpringBootPoject1Application {
+
+	public static void main(String[] args)
+{
+		ApplicationContext ac=SpringApplication.run(SpringBootPoject1Application.class, args);
+		Calculator c1=ac.getBean("calc",Calculator.class);
+		System.out.println("enter 2 nos");
+		Scanner ob=new Scanner(System.in);
+		int a=ob.nextInt();
+		int b=ob.nextInt();
+		System.out.println("The sum of 2 nos are"+c1.sum(a, b));
+		
+		System.out.println("enter 2 nos");
+		int c=ob.nextInt();
+		int d=ob.nextInt();
+		System.out.println("The sub of 2 nos are"+c1.sub(c, d));
+		
+		c1.welcome();
+		
+	}
+
+}
+------------------------------------------------------------------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+@Component("calc")
+public class Calculator 
+{
+public int sum(int a,int b)
+{
+	return a+b;
+}
+
+public int sub(int a,int b)
+{
+	return a-b;
+}
+
+public void welcome()
+{
+	System.out.println("welcome to spring boot");
+}
+}
+-----------------------------------------------------------------------------------
