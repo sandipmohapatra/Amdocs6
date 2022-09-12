@@ -127,3 +127,78 @@ public void welcome()
 }
 }
 -----------------------------------------------------------------------------------
+example-3
+------------------
+package com.example.demo;
+
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class SpringBootPoject2Application {
+
+	public static void main(String[] args) {
+		ApplicationContext ac=SpringApplication.run(SpringBootPoject2Application.class, args);
+		Employee obj1=ac.getBean("emp",Employee.class);
+		obj1.input(101, "sandip",45600.0f);
+		obj1.display();
+		
+		
+		Employee obj2=ac.getBean("emp",Employee.class);
+		System.out.println("enter empno,name and salary");
+		Scanner ob=new Scanner(System.in);
+		int e=ob.nextInt();
+		String n=ob.next();
+		float s=ob.nextFloat();
+		obj1.input(e,n,s);
+		obj1.display();
+		
+		Test1 obj3=ac.getBean("test1",Test1.class);
+		System.out.println("enter a no");
+		int x=ob.nextInt();
+		System.out.println("the square of a no is "+obj3.square(x));
+		
+	}
+
+}
+--------------------------------------------------------------------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+@Component("emp")
+public class Employee 
+{
+int empno;
+String name;
+float sal;
+void input(int empno,String name,float sal)
+{
+	this.empno=empno;
+	this.name=name;
+	this.sal=sal;
+}
+void display()
+{
+	System.out.println("the empno is "+empno);
+	System.out.println("the empname is "+name);
+	System.out.println("the empsal is "+sal);
+	}
+}
+-------------------------------------------------------------------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+@Component("test1")
+public class Test1 
+{
+public int square(int i)
+{
+	return i*i;
+}
+}
+------------------------------------------------------------------------------------------------
