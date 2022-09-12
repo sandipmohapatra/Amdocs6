@@ -16,5 +16,57 @@ when the version change we have to upgrade the jar files also.
 Maven :- In maven there will be automatic download to jar files.we have to mention the jar file version.
 We have maven repository .where the different versions of jar files available.
 
-we create a POM.xml file to mention the jar files required for the program.
+we create a POM.xml(project object model) file to mention the jar files required for the program.
 ----------------------------------------------------------------------------------------------------------------------
+to create a project:-
+file---new---spring starter project
+---------------------------------------------------------------
+In spring we have 3 types of container
+1)core (BeanFactory)
+2)J2EE (ApplicationContext)
+3)MVC(WebApplicationContext)
+---------------------------------------------------------
+work of container
+1)to read the web.xml
+2)create instances(object)
+3)manage life cycle methods.
+------------------------------------------------------
+example-1
+------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+@Component("calc")  <--------Object of Calculator class
+public class Calculator 
+{
+public int sum(int a,int b)
+{
+	return a+b;
+}
+}
+------------------------------------------------------------------------------------------------
+package com.example.demo;
+
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class SpringBootPoject1Application {
+
+	public static void main(String[] args)
+{
+		ApplicationContext ac=SpringApplication.run(SpringBootPoject1Application.class, args);
+		Calculator c1=ac.getBean("calc",Calculator.class);
+		System.out.println("enter 2 nos");
+		Scanner ob=new Scanner(System.in);
+		int a=ob.nextInt();
+		int b=ob.nextInt();
+		System.out.println("The sum of 2 nos are"+c1.sum(a, b));
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------
