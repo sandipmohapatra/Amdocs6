@@ -396,3 +396,44 @@ private EmployeeRepository repo;
 
 }
 ----------------------------------------------------------------------------------------------------------------
+package com.example.demo;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class EmployeeTest implements CommandLineRunner
+{
+@Autowired
+private EmployeeRepository repo;
+	@Override
+	public void run(String... args) throws Exception 
+	{
+	repo.save(new Employee("sandip",98000.45));
+	repo.save(new Employee("kiran",98000.45));	
+	repo.save(new Employee("sunil",88000.45));
+	repo.save(new Employee("Hari",78000.45));	
+	repo.save(new Employee("Anil",68000.45));
+	repo.save(new Employee("Amit",58000.45));	
+	
+	repo.saveAll(Arrays.asList(
+			new Employee("Niraj",35000.43),
+			new Employee("Madhu",45000.43),
+			new Employee("Tanishq",55000.43),
+			new Employee("Vishal",55000.43)
+					));
+	
+	boolean exist=repo.existsById(8);
+	System.out.println(exist);
+	System.out.println("*****************************");
+	repo.findAll().forEach(System.out::println);
+	repo.findAllById(Arrays.asList(5,6,7,8)).forEach(System.out::println);
+//	repo.deleteAll();
+//	repo.findAll().forEach(System.out::println);
+	}
+
+}
+----------------------------------------------------------------------------------------------------
